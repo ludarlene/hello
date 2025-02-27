@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen | UIUX Designer</title>
+    <style>
+        :root {
+            --bg-primary: #0c0c14;
+            --bg-secondary: #14141f;
+            --text-primary: #f0f0ff;
+            --text-secondary: #b8b8d0;
+            --accent-purple: #9333EA;
+            --accent-pink: #EC4899;
+            --accent-blue: #3B82F6;
+            --glow-purple: rgba(147, 51, 234, 0.5);
+            --glow-pink: rgba(236, 72, 153, 0.5);
+            --glow-blue: rgba(59, 130, 246, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .password-container {
+            width: 90%;
+            max-width: 400px;
+            background-color: var(--bg-secondary);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .neon-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .neon-circle.purple {
+            width: 200px;
+            height: 200px;
+            background-color: var(--accent-purple);
+            top: -100px;
+            right: -80px;
+        }
+        
+        .neon-circle.pink {
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-pink);
+            bottom: -70px;
+            left: -50px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            margin-bottom: 2rem;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        p {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2rem;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .password-form {
+            z-index: 2;
+            position: relative;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease, border 0.3s ease;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 15px var(--glow-purple);
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--glow-pink);
+        }
+        
+        .error-message {
+            color: #f87171;
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .content {
+            display: none;
+            padding: 2rem;
+        }
+        
+        /* Main content styles (copied from previous design) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Rest of the styles from the previous design remain the same */
+        /* Just including essential styling for the page structure */
+    </style>
+</head>
+<body>
+    <!-- Password Protection Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-container">
+            <div class="neon-circle purple"></div>
+            <div class="neon-circle pink"></div>
+            
+            <div class="logo">alex.design</div>
+            <h2>個人作品集</h2>
+            <p>請輸入密碼繼續訪問</p>
+            
+            <form class="password-form" id="passwordForm">
+                <input type="password" class="password-input" id="passwordInput" placeholder="請輸入通關密碼" required autocomplete="off">
+                <button type="submit" class="submit-button">進入</button>
+                <p class="error-message" id="errorMessage">密碼錯誤，請重試</p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Main Content will be displayed after password validation -->
+    <div class="container" id="mainContent">
+        <!-- Main content from the previous design -->
+        <header>
+            <div class="logo">alex.design</div>
+            <nav>
+                <ul>
+                    <li><a href="#">作品集</a></li>
+                    <li><a href="#">服務</a></li>
+                    <li><a href="#">關於我</a></li>
+                    <li><a href="#">聯絡</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div>
+            <!-- Your main content will be loaded here -->
+            <h1 style="text-align:center;padding:50px;">驗證成功，歡迎訪問！</h1>
+        </div>
+    </div>
+    
+    <script>
+        // Password validation script
+        document.addEventListener('DOMContentLoaded', function() {
+            const correctPassword = "iaa"; // Set the password here
+            const passwordForm = document.getElementById('passwordForm');
+            const passwordInput = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const passwordOverlay = document.getElementById('passwordOverlay');
+            const mainContent = document.getElementById('mainContent');
+            
+            // Check if password was previously validated in this session
+            if(sessionStorage.getItem('passwordValidated') === 'true') {
+                passwordOverlay.style.display = 'none';
+                mainContent.style.display = 'block';
+            }
+            
+            passwordForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if(passwordInput.value === correctPassword) {
+                    // Password is correct
+                    sessionStorage.setItem('passwordValidated', 'true');
+                    
+                    // Add transition effects
+                    passwordOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        passwordOverlay.style.display = 'none';
+                        mainContent.style.display = 'block';
+                    }, 500);
+                } else {
+                    // Password is incorrect
+                    errorMessage.style.display = 'block';
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                    
+                    // Add shake animation
+                    passwordForm.classList.add('shake');
+                    setTimeout(() => {
+                        passwordForm.classList.remove('shake');
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
