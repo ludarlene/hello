@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Chen | UIUX Designer</title>
+    <meta name="theme-color" content="#0F0F0F">
+    <title>UIUX Designer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #0c0c14;
@@ -286,99 +291,72 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">alex.design</div>
-            <nav>
-                <ul>
-                    <li><a href="#">作品集</a></li>
-                    <li><a href="#">服務</a></li>
-                    <li><a href="#">關於我</a></li>
-                    <li><a href="#">聯絡</a></li>
-                </ul>
-            </nav>
+            <h1>UIUX Designer</h1>
+            <p>Crafting digital experiences that delight users and drive business success</p>
         </header>
-        
-        <div class="bento-grid">
-            <!-- Hero Section -->
-            <div class="bento-item hero glow-purple">
-                <div class="neon-circle purple"></div>
-                <div class="neon-circle pink"></div>
-                <div class="neon-circle blue"></div>
-                <h1>創造有靈魂的<br>使用者體驗</h1>
-                <p>我是Alex，資深UIUX設計師，專注於創造前衛且優雅的數位產品體驗。</p>
-                <a href="#" class="button">探索我的作品</a>
+
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="projects" class="bento-grid">
+            <!-- Project 1 -->
+            <div class="bento-item project-1">
+                <img src="project1.jpg" alt="Project 1">
+                <div class="project-info">
+                    <h3>E-commerce Platform Redesign</h3>
+                    <p>UX Optimization Project to Improve User Conversion Rate</p>
+                </div>
             </div>
-            
-            <!-- Stats -->
-            <div class="bento-item stats glow-blue">
-                <div class="number">8+</div>
-                <p>產業經驗年數</p>
+
+            <!-- Project 2 -->
+            <div class="bento-item project-2">
+                <img src="project2.jpg" alt="Project 2">
+                <div class="project-info">
+                    <h3>Mobile App Design</h3>
+                    <p>User-Centered Design for Enhanced Mobile Experience</p>
+                </div>
             </div>
-            
-            <!-- Stats -->
-            <div class="bento-item stats glow-purple">
-                <div class="number">50+</div>
-                <p>成功專案</p>
+
+            <!-- Project 3 -->
+            <div class="bento-item project-3">
+                <img src="project3.jpg" alt="Project 3">
+                <div class="project-info">
+                    <h3>Website Redesign</h3>
+                    <p>Improving User Experience Through Modern Design</p>
+                </div>
             </div>
-            
+
             <!-- About Me -->
-            <div class="bento-item about glow-pink">
-                <h3>關於我</h3>
-                <p>我結合優雅與前衛的設計理念，專精於打造出色的使用者體驗。我相信優秀的設計應該是有靈魂的，能夠在美學與功能性之間取得完美平衡。</p>
-                <br>
-                <p>擁有豐富的跨領域設計經驗，包括金融科技、電子商務和健康科技等。</p>
-            </div>
-            
-            <!-- Recent Project -->
-            <div class="bento-item recent-project glow-blue">
-                <h3>最新專案</h3>
-                <div class="project-image"></div>
-                <p>Fintech革新：為領先的金融科技公司重新設計行動應用，提升用戶留存率45%並獲得設計獎項肯定。</p>
-            </div>
-            
-            <!-- Skills -->
-            <div class="bento-item skills glow-purple">
-                <h3>專業技能</h3>
-                <p>跨平台設計專家，善於創造一致且引人入勝的使用者體驗。</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">UX Research</span>
-                    <span class="skill-tag">UI Design</span>
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Prototyping</span>
-                    <span class="skill-tag">Design Systems</span>
-                    <span class="skill-tag">Motion Design</span>
+            <div class="bento-item about" id="about">
+                <h2>About Me</h2>
+                <p>Hi, I'm a UIUX designer with 3 years of experience. I specialize in creating user-centered designs that solve real problems. My approach combines aesthetic design with practical functionality.</p>
+                <div class="skills">
+                    <span>UI Design</span>
+                    <span>UX Research</span>
+                    <span>Prototyping</span>
+                    <span>User Testing</span>
                 </div>
             </div>
-            
-            <!-- Testimonial -->
-            <div class="bento-item testimonial glow-pink">
-                <h3>客戶評價</h3>
-                <p>"Alex不只是設計師，而是真正懂得商業和用戶需求的合作夥伴。他的設計不僅美觀，更能有效解決問題。"</p>
-                <br>
-                <p>— Sarah L., 產品總監</p>
-            </div>
-            
+
             <!-- Contact -->
-            <div class="bento-item contact-info glow-blue">
-                <h3>聯絡方式</h3>
-                <div class="contact-item">
-                    <span>✉️</span>
-                    <span>hello@alex.design</span>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>+886 912 345 678</span>
-                </div>
-                <div class="contact-item">
-                    <span>🔗</span>
-                    <span>linkedin.com/in/alexchen</span>
+            <div class="bento-item contact" id="contact">
+                <h2>Contact</h2>
+                <p>Interested in working together? Let's connect!</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com">Email</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
                 </div>
             </div>
-            
-            <!-- Footer -->
-            <div class="bento-item footer">
-                <p>© 2025 Alex Chen. All rights reserved.</p>
-            </div>
-        </div>
+        </section>
+
+        <footer>
+            <p>© 2024 UIUX Designer Portfolio. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>
